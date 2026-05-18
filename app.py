@@ -5,8 +5,6 @@ import numpy as np
 
 st.title("Mi primer proyecto en Streamlit")
 
-st.sidebar.title("Secciones")
-
 seccion = st.sidebar.selectbox("Sección", ["Home","Ejercicio 1","Ejercicio 2","Ejercicio 3","Ejercicio 4"])
 
 
