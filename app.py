@@ -16,7 +16,7 @@ if seccion == "Home":
           st.write("Módulo: 1")
           st.write("Año: 2026")
           
-          st.markdown(" Esta aplicación integra variables y estructuras de datos, listas, NumPy, funciones, programación funcional y orientada a objetos")
+          st.markdown("Descripción del Proyecto: Esta aplicación integra variables y estructuras de datos, listas, NumPy, funciones, programación funcional y orientada a objetos.")
           
           st.image("logoPythonDMC.png")
           
