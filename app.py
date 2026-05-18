@@ -20,7 +20,7 @@ if seccion == "Home":
           
           st.markdown(" Esta aplicación integra variables y estructuras de datos, listas, NumPy, funciones, programación funcional y orientada a objetos")
           
-          st.image("logoPythonDMC")
+          st.image("logoPythonDMC.png")
           
 
 elif seccion == "Ejercicio 1":
