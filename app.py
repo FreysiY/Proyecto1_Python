@@ -13,7 +13,7 @@ if seccion == "Home":
           st.subheader("Aplicación en Streamlit")
           
           st.write("Nombre: Freysi Ybeth Zurita Yman")
-          st.write("Módulo: 1-Python Fundamentals")
+          st.write("Módulo: 1")
           st.write("Año: 2026")
           
           st.markdown(" Esta aplicación integra variables y estructuras de datos, listas, NumPy, funciones, programación funcional y orientada a objetos")
