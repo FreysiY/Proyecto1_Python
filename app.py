@@ -89,12 +89,17 @@ elif seccion == "Ejercicio 2":
                     cantidad = st.number_input("Cantidad", min_value=1)
                     
           if st.button("Agregar registro"):
-                    total = precio * cantidad
-                    st.session_state.datos.append([nombredelproducto, categoria, precio, cantidad, total])
+                    if producto != "":
+                              total = precio * cantidad
+                              st.session_state.datos.append([nombredelproducto, categoria, precio, cantidad, total])
+
+                              st.success("Registro agregado correctamente")
+          else:
+                              st.error("Ingrese nombre del producto")
                     
           if st.session_state.datos:
-                    arr = np.array(st.session_state.datos)
-                    df = pd.DataFrame(arr, columns=["Nombre del Producto", "Categoría", "Precio", "Cantidad", "Total"])
+                    arreglo = np.array(st.session_state.datos)
+                    df = pd.DataFrame(arreglo, columns=["Nombre del Producto", "Categoría", "Precio", "Cantidad", "Total"])
                     st.dataframe(df)
 
 
@@ -132,6 +137,6 @@ elif seccion == "Ejercicio 4":
 
         if st.button("Eliminar"):
             st.session_state.productos = [
-                p for p in st.session_state.productos if p[0] != eliminar
+                p for p in st.session_state.productos if p[0]!= eliminar
             ]
                     
