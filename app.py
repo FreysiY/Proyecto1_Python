@@ -74,4 +74,67 @@ elif seccion == "Ejercicio 1":
                               st.error("Flujo de caja en contra")
                     else:
                               st.info("Flujo equilibrado")
+
+
+elif seccion == "Ejercicio 2":
+          st.title("Registro con NumPy")
+          st.markdown("Registro de productos en arrays y DataFrame")
+          
+          if "datos" not in st.session_state:
+                    st.session_state.datos = []
+                    
+                    nombredelproducto = st.text_input("Producto")
+                    categoria = st.selectbox("Categoría", ["A", "B", "C"])
+                    precio = st.number_input("Precio", min_value=0.0)
+                    cantidad = st.number_input("Cantidad", min_value=1)
+                    
+          if st.button("Agregar registro"):
+                    total = precio * cantidad
+                    st.session_state.datos.append([nombredelproducto, categoria, precio, cantidad, total])
+                    
+          if st.session_state.datos:
+                    arr = np.array(st.session_state.datos)
+                    df = pd.DataFrame(arr, columns=["Nombre del Producto", "Categoría", "Precio", "Cantidad", "Total"])
+                    st.dataframe(df)
+
+
+elif opcion == "Ejercicio 3":
+
+    st.title("🧮 Uso de funciones")
+
+    st.markdown("Cálculo de descuento.")
+
+    precio = st.number_input("Precio")
+    descuento = st.number_input("Descuento (%)")
+
+    if st.button("Calcular"):
+        resultado = precio - (precio * descuento / 100)
+        st.write("Precio final:", resultado)
+
+# ---------------- EJERCICIO 4 ----------------
+elif opcion == "Ejercicio 4":
+
+    st.title("🗂 CRUD simple")
+
+    st.markdown("Registro de productos.")
+
+    if "productos" not in st.session_state:
+        st.session_state.productos = []
+
+    nombre = st.text_input("Nombre")
+    precio = st.number_input("Precio")
+
+    if st.button("Agregar producto"):
+        st.session_state.productos.append([nombre, precio])
+
+    if st.session_state.productos:
+        df = pd.DataFrame(st.session_state.productos, columns=["Nombre", "Precio"])
+        st.dataframe(df)
+
+        eliminar = st.selectbox("Seleccionar producto a eliminar", df["Nombre"])
+
+        if st.button("Eliminar"):
+            st.session_state.productos = [
+                p for p in st.session_state.productos if p[0] != eliminar
+            ]
                     
