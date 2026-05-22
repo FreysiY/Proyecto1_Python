@@ -89,7 +89,7 @@ elif seccion == "Ejercicio 2":
                     cantidad = st.number_input("Cantidad", min_value=1)
                     
           if st.button("Agregar registro"):
-                    if producto != "":
+                    if nombredelproducto != "":
                               total = precio * cantidad
                               st.session_state.datos.append([nombredelproducto, categoria, precio, cantidad, total])
 
