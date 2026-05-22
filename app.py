@@ -58,8 +58,8 @@ elif seccion == "Ejercicio 1":
                     st.subheader("Movimientos registrados")
                     st.dataframe(df)
 
-                    ingresos = df[df["Tipo"] == "Ingreso"]["Valor"].sum()
-                    gastos = df[df["Tipo"] == "Gasto"]["Valor"].sum()
+                    ingresos = df[df["Tipo de movimiento"] == "Ingreso"]["Valor"].sum()
+                    gastos = df[df["Tipo de movimiento"] == "Gasto"]["Valor"].sum()
                     saldo = ingresos - gastos
 
                     st.subheader("Resultados")
