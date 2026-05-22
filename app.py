@@ -83,7 +83,7 @@ elif seccion == "Ejercicio 2":
           if "datos" not in st.session_state:
                     st.session_state.datos = []
                     
-                    nombredelproducto = st.text_input("Producto")
+                    nombredelproducto = st.text_input("Nombre del Producto")
                     categoria = st.selectbox("Categoría", ["A", "B", "C"])
                     precio = st.number_input("Precio", min_value=0.0)
                     cantidad = st.number_input("Cantidad", min_value=1)
