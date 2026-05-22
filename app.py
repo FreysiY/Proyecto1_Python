@@ -83,18 +83,18 @@ elif seccion == "Ejercicio 2":
           if "datos" not in st.session_state:
                     st.session_state.datos = []
                     
-                    nombredelproducto = st.text_input("Nombre del Producto")
-                    categoria = st.selectbox("Categoría", ["A", "B", "C"])
-                    precio = st.number_input("Precio", min_value=0.0)
-                    cantidad = st.number_input("Cantidad", min_value=1)
+          nombredelproducto = st.text_input("Nombre del Producto")
+          categoria = st.selectbox("Categoría", ["A", "B", "C"])
+          precio = st.number_input("Precio", min_value=0.0)
+          cantidad = st.number_input("Cantidad", min_value=1)
                     
           if st.button("Agregar registro"):
-                    if nombredelproducto.strip()!= "":
+                    if nombredelproducto != "":
                               total = precio * cantidad
                               st.session_state.datos.append([nombredelproducto, categoria, precio, cantidad, total])
 
                               st.success("Registro agregado correctamente")
-          else:
+                    else:
                               st.error("Ingrese nombre del producto")
                     
           if st.session_state.datos:
