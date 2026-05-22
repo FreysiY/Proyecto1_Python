@@ -100,7 +100,7 @@ elif seccion == "Ejercicio 2":
 
 elif opcion == "Ejercicio 3":
 
-    st.title("🧮 Uso de funciones")
+    st.title("Uso de funciones")
 
     st.markdown("Cálculo de descuento.")
 
