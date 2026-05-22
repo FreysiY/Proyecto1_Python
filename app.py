@@ -54,4 +54,24 @@ elif seccion == "Ejercicio 1":
                     }
                     
                     df = pd.DataFrame(datos)
+
+                    st.subheader("Movimientos registrados")
+                    st.dataframe(df)
+
+                    ingresos = df[df["Tipo"] == "Ingreso"]["Valor"].sum()
+                    gastos = df[df["Tipo"] == "Gasto"]["Valor"].sum()
+                    saldo = ingresos - gastos
+
+                    st.subheader("Resultados")
+
+                    st.metric("Total ingresos", ingresos)
+                    st.metric("Total gastos", gastos)
+                    st.metric("Saldo final", saldo)
+
+                    if saldo > 0:
+                              st.success("Flujo de caja a favor")
+                    elif saldo < 0:
+                              st.error("Flujo de caja en contra")
+                    else:
+                              st.info("Flujo equilibrado")
                     
