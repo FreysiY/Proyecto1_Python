@@ -99,7 +99,7 @@ elif seccion == "Ejercicio 2":
 
 
 elif seccion == "Ejercicio 3":
-    st.title("Uso de funciones desde una librería externa")
+    st.title("Uso de funciones")
     st.markdown("Cálculo de descuento")
 
     precio = st.number_input("Precio")
@@ -109,12 +109,11 @@ elif seccion == "Ejercicio 3":
         resultado = precio - (precio * descuento / 100)
         st.write("Precio final:", resultado)
 
-# ---------------- EJERCICIO 4 ----------------
-elif opcion == "Ejercicio 4":
 
-    st.title("🗂 CRUD simple")
+elif seccion == "Ejercicio 4":
 
-    st.markdown("Registro de productos.")
+    st.title("CRUD simple")
+    st.markdown("Registro de productos")
 
     if "productos" not in st.session_state:
         st.session_state.productos = []
