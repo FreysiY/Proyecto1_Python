@@ -89,7 +89,7 @@ elif seccion == "Ejercicio 2":
                     cantidad = st.number_input("Cantidad", min_value=1)
                     
           if st.button("Agregar registro"):
-                    if nombredelproducto != "":
+                    if nombredelproducto!= "":
                               total = precio * cantidad
                               st.session_state.datos.append([nombredelproducto, categoria, precio, cantidad, total])
 
@@ -98,7 +98,7 @@ elif seccion == "Ejercicio 2":
                               st.error("Ingrese nombre del producto")
                     
           if st.session_state.datos:
-                    arreglo = np.array(st.session_state.datos)
+                    arreglo = np.array(st.session_state.datos, dtype=object)
                     df = pd.DataFrame(arreglo, columns=["Nombre del Producto", "Categoría", "Precio", "Cantidad", "Total"])
                     st.dataframe(df)
 
