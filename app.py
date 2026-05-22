@@ -98,7 +98,7 @@ elif seccion == "Ejercicio 2":
                     st.dataframe(df)
 
 
-elif opcion == "Ejercicio 3":
+elif seccion == "Ejercicio 3":
     st.title("Uso de funciones desde una librería externa")
     st.markdown("Cálculo de descuento")
 
