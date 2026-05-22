@@ -99,10 +99,8 @@ elif seccion == "Ejercicio 2":
 
 
 elif opcion == "Ejercicio 3":
-
-    st.title("Uso de funciones")
-
-    st.markdown("Cálculo de descuento.")
+    st.title("Uso de funciones desde una librería externa")
+    st.markdown("Cálculo de descuento")
 
     precio = st.number_input("Precio")
     descuento = st.number_input("Descuento (%)")
