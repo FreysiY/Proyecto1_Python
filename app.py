@@ -104,7 +104,7 @@ elif seccion == "Ejercicio 2":
 
 
 elif seccion == "Ejercicio 3":
-          from libreria_funciones_proyecto1.py import calcular_productividad_laboral
+          from libreria_funciones_proyecto1 import calcular_productividad_laboral
           st.title("Ejercicio 3: Productividad Laboral")
 
           st.markdown("""
