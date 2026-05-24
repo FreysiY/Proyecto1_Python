@@ -151,7 +151,7 @@ elif seccion == "Ejercicio 3":
 
 
 elif seccion == "Ejercicio 4":
-          from librería_clases_proyecto1 import validar_positivo
+          from librería_clases_proyecto1 import validar_positivo
           
           st.title("Ejercicio 4: CRUD con Validación")
           st.markdown("Gestión de productos con validación de datos")
