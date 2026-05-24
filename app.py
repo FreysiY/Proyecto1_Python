@@ -150,19 +150,6 @@ elif seccion == "Ejercicio 3":
                     st.dataframe(df)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 elif seccion == "Ejercicio 4":
 
     st.title("CRUD simple")
