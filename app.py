@@ -151,27 +151,80 @@ elif seccion == "Ejercicio 3":
 
 
 elif seccion == "Ejercicio 4":
-
-    st.title("CRUD simple")
-    st.markdown("Registro de productos")
-
-    if "productos" not in st.session_state:
-        st.session_state.productos = []
-
-    nombre = st.text_input("Nombre")
-    precio = st.number_input("Precio")
-
-    if st.button("Agregar producto"):
-        st.session_state.productos.append([nombre, precio])
-
-    if st.session_state.productos:
-        df = pd.DataFrame(st.session_state.productos, columns=["Nombre", "Precio"])
-        st.dataframe(df)
-
-        eliminar = st.selectbox("Seleccionar producto a eliminar", df["Nombre"])
-
-        if st.button("Eliminar"):
-            st.session_state.productos = [
-                p for p in st.session_state.productos if p[0]!= eliminar
-            ]
+          from libreria_clases_proyecto1 import validar_positivo
+          
+          st.title("Ejercicio 4: CRUD con Validación")
+          st.markdown("Gestión de productos con validación de datos")
+          
+          if "productos" not in st.session_state:
+                    st.session_state.productos = []
                     
+          tab1, tab2, tab3, tab4 = st.tabs(["Crear", "Leer", "Actualizar", "Eliminar"])
+          
+          with tab1:
+              st.subheader("Crear producto")
+
+              nombre = st.text_input("Nombre del producto")
+              precio = st.number_input("Precio", min_value=0.0)
+                    
+                    if st.button("Guardar producto"):
+                              try:
+                                        validar_positivo(precio, "precio")
+                                        
+                                        if nombre.strip()!= "":
+                                                  st.session_state.productos.append({
+                                                            "Nombre": nombre,
+                                                            "Precio": precio
+                                                  })
+                                                  st.success("Producto agregado correctamente")
+                                        else:
+                                                  st.error("Ingrese un nombre válido")
+                              except Exception as e:
+                                        st.error(str(e))
+
+
+          with tab2:
+                    st.subheader("Lista de productos")
+                    
+                    if st.session_state.productos:
+                              df = pd.DataFrame(st.session_state.productos)
+                              st.dataframe(df)
+                    else:
+                              st.info("No hay productos registrados")
+
+          with tab3:
+                        st.subheader("Actualizar producto")
+                    
+                    if st.session_state.productos:
+                              nombres = [p["Nombre"] for p in st.session_state.productos]
+                              
+                              seleccionado = st.selectbox("Seleccionar producto", nombres)
+                              nuevo_precio = st.number_input("Nuevo precio", min_value=0.0)
+                              
+                              if st.button("Actualizar"):
+                                        try:
+                                                  validar_positivo(nuevo_precio, "precio")
+                                                  for p in st.session_state.productos:
+                                                            if p["Nombre"] == seleccionado:
+                                                                      p["Precio"] = nuevo_precio
+                                                  st.success("Producto actualizado")
+                                        
+                                        except Exception as e:
+                                                  st.error(str(e))
+                    
+                    else:
+                              st.info("No hay productos para actualizar")
+
+          with tab4:
+                    st.subheader("Eliminar producto")
+                    
+                    if st.session_state.productos:
+                              nombres = [p["Nombre"] for p in st.session_state.productos]
+                              eliminar = st.selectbox("Seleccionar producto", nombres)
+                              
+                    if st.button("Eliminar"):
+                              st.session_state.productos = [
+                                        p for p in st.session_state.productos if p["Nombre"] != eliminar]
+                              st.success("Producto eliminado")
+                    else:
+                              st.info("No hay productos para eliminar")
