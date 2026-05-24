@@ -192,7 +192,7 @@ elif seccion == "Ejercicio 4":
                               st.info("No hay productos registrados")
 
           with tab3:
-                        st.subheader("Actualizar producto")
+                    st.subheader("Actualizar producto")
                     
                     if st.session_state.productos:
                               nombres = [p["Nombre"] for p in st.session_state.productos]
