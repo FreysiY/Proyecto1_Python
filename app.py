@@ -166,6 +166,7 @@ elif seccion == "Ejercicio 4":
 
               nombre = st.text_input("Nombre del producto")
               precio = st.number_input("Precio", min_value=0.0)
+                    
                     if st.button("Guardar producto"):
                               try:
                                         validar_positivo(precio, "precio")
