@@ -104,15 +104,63 @@ elif seccion == "Ejercicio 2":
 
 
 elif seccion == "Ejercicio 3":
-    st.title("Uso de funciones")
-    st.markdown("Cálculo de descuento")
+          from libreria_funciones_proyecto1 import calcular_productividad_laboral
+          st.title("Ejercicio 3: Productividad Laboral")
 
-    precio = st.number_input("Precio")
-    descuento = st.number_input("Descuento (%)")
+          st.markdown("""
+          Cálculo de productividad en operaciones:
+          -Productividad por hora
+          -Productividad por trabajador
+          """)
+          
+          if "historial_prod" not in st.session_state:
+                    st.session_state.historial_prod = []
+                    
+          opcion = st.selectbox(
+                    "Seleccione función",["Productividad Laboral"])
+          
+          unidades = st.number_input("Unidades producidas", min_value=0.0)
+          horas = st.number_input("Horas trabajadas", min_value=0.0)
+          trabajadores = st.number_input("Número de trabajadores", min_value=1)
+          
+          if st.button("Calcular productividad"):
+                    try:
+                              resultado = calcular_productividad_laboral(unidades, horas, trabajadores)
+                              
+                              st.write("Resultado:")
+                              st.write(resultado)
+                              
+                              st.session_state.historial_prod.append({
+                                        "Unidades": unidades,
+                                        "Horas": horas,
+                                        "Trabajadores": trabajadores,
+                                        "Prod/Hora": resultado["productividad_por_hora"],
+                                        "Prod/Trabajador": resultado["productividad_por_trabajador"]
+                                        })
 
-    if st.button("Calcular"):
-        resultado = precio - (precio * descuento / 100)
-        st.write("Precio final:", resultado)
+                              st.success("Cálculo realizado correctamente")
+                    
+                    except Exception as e:
+                              st.error(f"Error: {e}")
+          
+          if st.session_state.historial_prod:
+                    df = pd.DataFrame(st.session_state.historial_prod)
+                    
+                    st.subheader("Histórico de resultados")
+                    st.dataframe(df)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 elif seccion == "Ejercicio 4":
